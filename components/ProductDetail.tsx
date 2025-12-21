@@ -101,6 +101,18 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         <p className="text-gray-300 text-lg leading-relaxed mb-8">
           {product.description}
         </p>
+        {/* Who This Is For */}
+        {product.whoThisIsFor && (
+          <div className="bg-boxing-gray/30 border border-boxing-gold/30 rounded-lg p-4 mb-8">
+            <div className="flex items-center gap-2 mb-2">
+              <svg className="w-5 h-5 text-boxing-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <span className="text-boxing-gold font-heading text-sm uppercase">Who This Is For</span>
+            </div>
+            <p className="text-white font-medium">{product.whoThisIsFor}</p>
+          </div>
+        )}
 
         {/* Size Selection */}
         {product.sizes && product.sizes.length > 0 && (
@@ -167,6 +179,23 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           <p className="text-gray-400 text-sm text-center">
             Free shipping on orders over $100
           </p>
+        )}
+
+        {/* What's Included (for bundles) */}
+        {product.whatsIncluded && product.whatsIncluded.length > 0 && (
+          <div className="mb-8 border-t border-boxing-gray pt-8">
+            <h3 className="text-2xl font-heading text-white mb-4">WHAT'S INCLUDED</h3>
+            <ul className="space-y-3">
+              {product.whatsIncluded.map((item, index) => (
+                <li key={index} className="flex items-start text-gray-300">
+                  <svg className="w-6 h-6 text-boxing-gold mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
 
         {/* Features */}
