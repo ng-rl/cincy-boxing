@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Providers from '@/components/Providers';
 
 export const metadata: Metadata = {
   title: {
@@ -52,10 +53,12 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body bg-boxing-black text-white antialiased">
+        <Providers>
         <Navbar />
         <main className="min-h-screen">
           {children}
         </main>
+        </Providers>
         <Footer />
       </body>
     </html>
