@@ -25,6 +25,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/neighborhoods" className="text-gray-400 hover:text-boxing-red transition-colors">
+                  Areas We Serve
+                </Link>
+              </li>
+              <li>
                 <Link href="/blog" className="text-gray-400 hover:text-boxing-red transition-colors">
                   Blog
                 </Link>

@@ -8,6 +8,7 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Home' },
+    { href: '/neighborhoods', label: 'Areas' },
     { href: '/blog', label: 'Blog' },
     { href: '/book', label: 'Book' },
   ];
