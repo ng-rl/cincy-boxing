@@ -83,7 +83,7 @@ export default function StepGear() {
                   {/* Image */}
                   <div className="relative h-48 bg-boxing-gray">
                     <Image
-                      src={product.image}
+                      src={product.images[0]}
                       alt={product.name}
                       fill
                       className="object-cover"
