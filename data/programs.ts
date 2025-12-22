@@ -24,7 +24,7 @@ export const programs: Program[] = [
       'Master the fundamentals of boxing with a proven 4-week program. Learn proper stance, footwork, punches, and defensive techniques. Perfect for complete beginners or anyone wanting to build a solid foundation.',
     duration: 4,
     outcome:
-      'You'll master basic boxing technique, understand proper form, and be ready to train confidently on your own or with a coach.',
+      "You'll master basic boxing technique, understand proper form, and be ready to train confidently on your own or with a coach.",
     curriculum: [
       'Week 1: Stance, Guard, and Basic Punches (Jab, Cross)',
       'Week 2: Hooks, Uppercuts, and Punch Combinations',
@@ -52,7 +52,7 @@ export const programs: Program[] = [
       'Transform your heavy bag workouts from random punching to strategic training. Learn proper technique, powerful combinations, and conditioning drills that maximize results and prevent injury.',
     duration: 4,
     outcome:
-      'You'll know how to structure effective heavy bag workouts, punch with proper form and power, and design your own training sessions.',
+      "You'll know how to structure effective heavy bag workouts, punch with proper form and power, and design your own training sessions.",
     curriculum: [
       'Week 1: Proper Bag Technique and Power Generation',
       'Week 2: Combination Training and Flow',
@@ -89,7 +89,7 @@ export const programs: Program[] = [
       'Build explosive power, endurance, and mental toughness with boxing-based conditioning workouts. No bag or equipment required—just you, a timer, and the willingness to push.',
     duration: 4,
     outcome:
-      'You'll dramatically improve cardiovascular endurance, explosive power, core strength, and mental resilience.',
+      "You'll dramatically improve cardiovascular endurance, explosive power, core strength, and mental resilience.",
     curriculum: [
       'Week 1: Foundation—Shadowboxing Cardio and Core',
       'Week 2: Power—Explosive Movement and Plyometrics',
