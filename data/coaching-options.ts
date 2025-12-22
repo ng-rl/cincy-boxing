@@ -99,9 +99,13 @@ export function calculateCoachingCost(
   if (coachingType === 'self-guided') return 0;
 
   // Get rate per session
-  const rateKey = coachingType === 'virtual' ? 'virtual' : 'in-person';
-  const durationKey = `${duration}min` as '30min' | '60min';
-  const ratePerSession = coachingRates[rateKey][durationKey];
+  let ratePerSession = 0;
+
+  if (coachingType === 'virtual') {
+    ratePerSession = duration === 30 ? coachingRates.virtual['30min'] : coachingRates.virtual['60min'];
+  } else if (coachingType === 'in-person') {
+    ratePerSession = coachingRates['in-person']['60min'];
+  }
 
   if (!ratePerSession) return 0;
 

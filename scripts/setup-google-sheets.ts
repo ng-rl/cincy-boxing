@@ -211,12 +211,12 @@ async function createSpreadsheet() {
   console.log('📦 Populating Products tab with inventory...');
   const productRows = products.map((product, index) => [
     `PROD-${String(index + 1).padStart(3, '0')}`, // Product ID
-    product.sku || `SKU-${product.id.toUpperCase()}`,
+    `SKU-${product.slug.toUpperCase()}`, // Generate SKU from slug
     product.name,
     product.category,
     product.salePrice || product.price,
     '', // Cost (COGS) - to be filled in
-    product.trackInventory ? 'Yes' : 'No',
+    product.isDigital ? 'No' : 'Yes', // Track inventory for physical products
     50, // Initial stock
     0, // Reserved
     '=H2-I2', // Available formula
