@@ -30,6 +30,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/shop" className="text-gray-400 hover:text-boxing-red transition-colors">
+                  Shop
+                </Link>
+              </li>
+              <li>
                 <Link href="/blog" className="text-gray-400 hover:text-boxing-red transition-colors">
                   Blog
                 </Link>
@@ -37,6 +42,11 @@ export default function Footer() {
               <li>
                 <Link href="/book" className="text-gray-400 hover:text-boxing-red transition-colors">
                   Book a Session
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-gray-400 hover:text-boxing-red transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>
