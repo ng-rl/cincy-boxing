@@ -1,7 +1,29 @@
 # CINCY BOXING HUB - GOOGLE SHEETS TEMPLATE
 # Complete operational backbone for training + e-commerce business
 
-## SETUP INSTRUCTIONS
+## ⚡ RECOMMENDED: AUTO-GENERATE YOUR SHEET
+
+**Instead of manually creating this sheet, you can auto-generate it with one command:**
+
+```bash
+npm run setup-sheets
+```
+
+This script will automatically create a fully-configured Google Sheet with:
+- ✅ All 7 tabs with proper headers
+- ✅ All 13 products pre-populated
+- ✅ All formulas configured
+- ✅ Data validation dropdowns
+- ✅ Conditional formatting
+- ✅ Analytics Dashboard with 12 metrics
+
+**See `/docs/GOOGLE_CLOUD_SETUP.md` for complete setup instructions.**
+
+---
+
+## MANUAL SETUP INSTRUCTIONS
+
+If you prefer to create the sheet manually, follow these steps:
 
 1. Create new Google Sheet named "Cincy Boxing Hub"
 2. Create 7 tabs (sheets) with exact names below
