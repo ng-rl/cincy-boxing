@@ -11,7 +11,6 @@ export default function Navbar() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/neighborhoods', label: 'Areas' },
-    { href: '/shop', label: 'Shop' },
     { href: '/blog', label: 'Blog' },
   ];
 
@@ -57,10 +56,10 @@ export default function Navbar() {
             </button>
 
             <Link
-              href="/book"
+              href="/build"
               className="gradient-red text-white px-6 py-3 rounded-md font-heading text-xl hover:shadow-lg hover:shadow-boxing-red/50 transition-all duration-200"
             >
-              BOOK NOW
+              BUILD YOUR TRAINING
             </Link>
           </div>
 
@@ -117,11 +116,11 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/book"
+              href="/build"
               className="block gradient-red text-white px-3 py-3 rounded-md font-heading text-xl text-center mt-4"
               onClick={() => setIsOpen(false)}
             >
-              BOOK NOW
+              BUILD YOUR TRAINING
             </Link>
           </div>
         </div>

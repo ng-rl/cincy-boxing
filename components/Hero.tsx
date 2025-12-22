@@ -23,17 +23,20 @@ export default function Hero() {
           CINCY <span className="text-boxing-red">BOXING</span>
         </h1>
         <p className="text-2xl sm:text-3xl md:text-4xl text-boxing-gold font-heading mb-8 drop-shadow-md">
-          PERSONAL BOXING TRAINING IN CINCINNATI
+          BOXING TRAINING IN CINCINNATI
         </p>
         <p className="text-xl sm:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto font-light">
-          Get Fight Ready with Expert 1-on-1 Training
+          Pick a program. Customize your training. Start today.
         </p>
         <Link
-          href="/book"
+          href="/build"
           className="inline-block gradient-red text-white px-12 py-5 rounded-lg font-heading text-3xl hover:shadow-2xl hover:shadow-boxing-red/50 transition-all duration-300 transform hover:scale-105"
         >
-          BOOK A SESSION
+          BUILD YOUR TRAINING
         </Link>
+        <p className="mt-6 text-white/80 text-lg drop-shadow-md">
+          One program. Customize how you train it.
+        </p>
       </div>
 
       {/* Scroll Indicator */}
