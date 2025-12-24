@@ -9,6 +9,7 @@ import {
   formatFrequency,
   formatDuration,
 } from '@/data/coaching-options';
+import { useEffect, useRef } from 'react';
 
 export default function StepCoaching() {
   const {
@@ -20,7 +21,34 @@ export default function StepCoaching() {
     setCoachingFrequency,
     setCoachingDuration,
     getCoachingPrice,
+    nextStep,
   } = useBuilder();
+
+  const hasAutoAdvancedRef = useRef(false);
+
+  // Auto-advance when coaching selection is complete
+  useEffect(() => {
+    // Don't auto-advance if we already did
+    if (hasAutoAdvancedRef.current) return;
+
+    // Auto-advance for self-guided (no config needed)
+    if (selectedCoaching === 'self-guided') {
+      hasAutoAdvancedRef.current = true;
+      setTimeout(() => nextStep(), 300);
+      return;
+    }
+
+    // Auto-advance for virtual/in-person when both frequency and duration are selected
+    if (coachingFrequency && coachingDuration) {
+      hasAutoAdvancedRef.current = true;
+      setTimeout(() => nextStep(), 500);
+    }
+  }, [selectedCoaching, coachingFrequency, coachingDuration, nextStep]);
+
+  // Reset auto-advance flag when coaching type changes
+  useEffect(() => {
+    hasAutoAdvancedRef.current = false;
+  }, [selectedCoaching]);
 
   if (!selectedProgram) {
     return (
