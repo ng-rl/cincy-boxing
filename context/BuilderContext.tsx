@@ -13,6 +13,7 @@ import {
 interface BuilderState {
   // Step 1: Program
   selectedProgram: Program | null;
+  selectedAddon: Program | null; // Optional add-on program (conditioning)
 
   // Step 2: Coaching
   selectedCoaching: CoachingType;
@@ -29,6 +30,7 @@ interface BuilderState {
 interface BuilderContextType extends BuilderState {
   // Program actions
   setProgram: (program: Program) => void;
+  setAddon: (addon: Program | null) => void;
 
   // Coaching actions
   setCoaching: (type: CoachingType) => void;
@@ -66,6 +68,7 @@ const STORAGE_KEY = 'cincy-boxing-builder';
 export function BuilderProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<BuilderState>({
     selectedProgram: null,
+    selectedAddon: null,
     selectedCoaching: 'self-guided',
     coachingFrequency: null,
     coachingDuration: null,
@@ -94,6 +97,10 @@ export function BuilderProvider({ children }: { children: ReactNode }) {
   // Program actions
   const setProgram = (program: Program) => {
     setState((prev) => ({ ...prev, selectedProgram: program }));
+  };
+
+  const setAddon = (addon: Program | null) => {
+    setState((prev) => ({ ...prev, selectedAddon: addon }));
   };
 
   // Coaching actions
@@ -162,7 +169,9 @@ export function BuilderProvider({ children }: { children: ReactNode }) {
 
   // Calculations
   const getProgramPrice = () => {
-    return state.selectedProgram?.basePrice || 0;
+    const basePrice = state.selectedProgram?.basePrice || 0;
+    const addonPrice = state.selectedAddon?.basePrice || 0;
+    return basePrice + addonPrice;
   };
 
   const getCoachingPrice = () => {
@@ -192,6 +201,7 @@ export function BuilderProvider({ children }: { children: ReactNode }) {
   const clearBuilder = () => {
     setState({
       selectedProgram: null,
+      selectedAddon: null,
       selectedCoaching: 'self-guided',
       coachingFrequency: null,
       coachingDuration: null,
@@ -224,6 +234,7 @@ export function BuilderProvider({ children }: { children: ReactNode }) {
   const value: BuilderContextType = {
     ...state,
     setProgram,
+    setAddon,
     setCoaching,
     setCoachingFrequency,
     setCoachingDuration,

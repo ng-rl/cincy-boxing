@@ -12,6 +12,7 @@ export interface Program {
   recommendedGear: string[]; // Product slugs from products.ts
   image: string;
   features: string[];
+  type: 'base' | 'addon'; // Base programs (fundamentals/heavy bag) or add-on programs (conditioning)
 }
 
 export const programs: Program[] = [
@@ -42,6 +43,7 @@ export const programs: Program[] = [
       'Lifetime access to program materials',
       'Train at your own pace',
     ],
+    type: 'base',
   },
   {
     id: 'heavy-bag-foundations',
@@ -79,6 +81,7 @@ export const programs: Program[] = [
       'Workout templates you can repeat',
       'Lifetime access to program materials',
     ],
+    type: 'base',
   },
   {
     id: 'boxing-conditioning',
@@ -111,6 +114,7 @@ export const programs: Program[] = [
       'HIIT and interval training protocols',
       'Lifetime access to program materials',
     ],
+    type: 'addon',
   },
 ];
 
@@ -122,4 +126,14 @@ export function getProgramBySlug(slug: string): Program | undefined {
 // Helper function to get program by id
 export function getProgramById(id: string): Program | undefined {
   return programs.find((p) => p.id === id);
+}
+
+// Helper function to get base programs only
+export function getBasePrograms(): Program[] {
+  return programs.filter((p) => p.type === 'base');
+}
+
+// Helper function to get addon programs only
+export function getAddonPrograms(): Program[] {
+  return programs.filter((p) => p.type === 'addon');
 }

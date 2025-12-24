@@ -11,6 +11,7 @@ import { useState } from 'react';
 export default function StepReview() {
   const {
     selectedProgram,
+    selectedAddon,
     selectedCoaching,
     coachingFrequency,
     coachingDuration,
@@ -87,7 +88,7 @@ export default function StepReview() {
       <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Order Summary - Left side (2 cols) */}
         <div className="lg:col-span-2 space-y-6">
-          {/* Program */}
+          {/* Base Program */}
           <div className="bg-boxing-dark border border-boxing-gray rounded-lg p-6">
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
@@ -109,9 +110,37 @@ export default function StepReview() {
               </button>
             </div>
             <div className="text-right">
-              <p className="text-boxing-gold font-heading text-2xl">${programPrice}</p>
+              <p className="text-boxing-gold font-heading text-2xl">${selectedProgram.basePrice}</p>
             </div>
           </div>
+
+          {/* Optional Add-on Program */}
+          {selectedAddon && (
+            <div className="bg-boxing-dark border border-boxing-gray rounded-lg p-6">
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <h3 className="text-xl font-heading text-white">
+                      {selectedAddon.name}
+                    </h3>
+                    <span className="bg-boxing-gold text-boxing-black text-xs px-2 py-1 rounded font-medium">
+                      OPTIONAL ADD-ON
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-sm">{selectedAddon.tagline}</p>
+                </div>
+                <button
+                  onClick={() => goToStep(1)}
+                  className="text-boxing-gold hover:text-white transition-colors text-sm"
+                >
+                  Edit
+                </button>
+              </div>
+              <div className="text-right">
+                <p className="text-boxing-gold font-heading text-2xl">+${selectedAddon.basePrice}</p>
+              </div>
+            </div>
+          )}
 
           {/* Coaching */}
           <div className="bg-boxing-dark border border-boxing-gray rounded-lg p-6">
@@ -195,9 +224,15 @@ export default function StepReview() {
             {/* Breakdown */}
             <div className="space-y-3 mb-6 pb-6 border-b border-boxing-gray">
               <div className="flex justify-between text-gray-300">
-                <span>Program</span>
-                <span>${programPrice}</span>
+                <span>{selectedProgram.name}</span>
+                <span>${selectedProgram.basePrice}</span>
               </div>
+              {selectedAddon && (
+                <div className="flex justify-between text-gray-300">
+                  <span>{selectedAddon.name}</span>
+                  <span>+${selectedAddon.basePrice}</span>
+                </div>
+              )}
               {coachingPrice > 0 && (
                 <div className="flex justify-between text-gray-300">
                   <span>Coaching</span>
